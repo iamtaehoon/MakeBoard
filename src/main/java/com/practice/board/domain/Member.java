@@ -22,8 +22,7 @@ public class Member {
     private String email;
     private String phoneNumber;
 
-    public void makeMember(Long id, String userId, String password, String userName, String email, String phoneNumber) {
-        this.id = id;
+    public void makeMember(String userId, String password, String userName, String email, String phoneNumber) {
         this.userId = userId;
         this.password = password;
         this.userName = userName;
