@@ -22,7 +22,7 @@ class MemberRepositoryTest {
     public void 회원가입() throws Exception {
         //given
         Member member = new Member();
-        member.makeMember("ss","123","taehoon","kimth9981@das","010-1234-1263");
+        member.makeMember("ss","123","taehoon","kimth9981@naver.com","010-1234-1263");
         
         //when
         Long savedMemberId = memberRepository.saveMember(member);
@@ -39,7 +39,7 @@ class MemberRepositoryTest {
     public void 유저아이디로_회원찾기() throws Exception {
         //given
         Member member = new Member();
-        member.makeMember("ss","123","taehoon","kimth9981@das","010-1234-1263");
+        member.makeMember("ss","123","taehoon","kimth9981@naver.com","010-1234-1263");
         memberRepository.saveMember(member);
 
         //when

@@ -11,6 +11,14 @@ spring:
       hibernate:
 #       show_sql: true
         format_sql: true
+  mail:
+    host: smtp.naver.com
+    port: 465
+    username: developer1229@naver.com
+    password: 1229@springJava
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.ssl.enable: true
 logging.level:
   org.hibernate.SQL: debug
 #  org.hibernate.type: trace
