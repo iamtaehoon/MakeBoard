@@ -23,6 +23,7 @@ public class MemberService {
 
     @Value("${spring.mail.username}")
     private String form;
+
     /**
      * 회원가입
      */

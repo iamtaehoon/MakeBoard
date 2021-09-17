@@ -19,7 +19,7 @@ class MemberRepositoryTest {
     private MemberRepository memberRepository;
 
     @Test
-    public void 회원가입() throws Exception {
+    public void 회원저장() throws Exception {
         //given
         Member member = new Member();
         member.makeMember("ss","123","taehoon","kimth9981@naver.com","010-1234-1263");
@@ -30,7 +30,6 @@ class MemberRepositoryTest {
         //then
         System.out.println("savedUserId = " + savedMemberId);
         Assertions.assertThat(savedMemberId).isEqualTo(member.getId());
-        
 
     }
 
@@ -54,6 +53,29 @@ class MemberRepositoryTest {
         Assertions.assertThat(memberByUserId.getEmail()).isEqualTo(member.getEmail());
         Assertions.assertThat(memberByUserId.getPhoneNumber()).isEqualTo(member.getPhoneNumber());
         
+    }
+
+    @Test
+    public void 아이디_이메일로_회원찾기() throws Exception {
+        //given
+        Member member1 = new Member();
+        member1.makeMember("1번","123","taehoon","kimth9981@naver.com","010-1234-1263");
+
+        Member member2 = new Member();
+        member2.makeMember("2번","123","taehoon","asgasf@naver.com","010-2222-1263");
+
+        Member member3 = new Member();
+        member3.makeMember("3번","123","nottaehoon","asga2sf@naver.com","010-2222-2263");
+
+        memberRepository.saveMember(member1);
+        memberRepository.saveMember(member2);
+        memberRepository.saveMember(member3);
+
+        //when
+        List<Member> findMember = memberRepository.findMemberByUserNameAndEmail("taehoon", "asgasf@naver.com");
+
+        //then
+        Assertions.assertThat(findMember.get(0)).isEqualTo(member2);
     }
 
 
