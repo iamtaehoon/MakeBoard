@@ -32,8 +32,9 @@ public class Post {
     }
 
 
-    public static Post makePost(PostForm postForm) {
+    public static Post makePost(Member member,PostForm postForm) {
         Post post = new Post();
+        post.member = member;
         post.title = postForm.getTitle();
         post.content = postForm.getContent();
 
