@@ -7,6 +7,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,8 +24,8 @@ class PostServiceTest {
 
     @Test
     public void 게시물_등록() throws Exception {
-        //given
 
+        //given
         Member member = new Member();
         member.makeMember("kimda1","123","김태훈","12@naver.com","010-1111-1111");
         Long memberId = memberService.join(member);

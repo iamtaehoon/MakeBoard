@@ -23,16 +23,23 @@ public class MemberRepository {
         return member.getId();
     }
 
+
+
+
     /**
      * 멤버 1명 찾기
      * @param memberId : 멤버의 기본키
      * @return 해당 멤버객체 반환
      */
-    public Member findMember(Long memberId) {
+    public Member findMemberById(Long memberId) {
         return em.find(Member.class, memberId);
     }
 
-    //사용자 아이디를 가지고 ex.kimth9981로 찾는거
+    /**
+     * 멤버 1명 찾기 - 사용자 아이디를 가지고 ex.kimth9981로 찾는거
+     * @param userId : 멤버의 기본키
+     * @return 해당 멤버객체 반환
+     */
     public List<Member> findMemberByUserId(String userId) {
         //userId라는 기본키 아닌 값으로 Member를 찾아내야함. -> jpql이 들어갈 떄.
         return em.createQuery("select m from Member m " +
