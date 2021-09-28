@@ -1,0 +1,26 @@
+.join_box {
+
+    width: 500px;
+    height: 500px;
+    margin: 100px auto auto auto;
+}
+
+.join_box > h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.join_box > form > table {
+    width: 400px;
+    height: 300px;
+    margin: auto;
+} 
+
+.join_box > form > .join_button {
+    display: flex;
+    justify-content: center;
+}
+
+.join_box > form > .join_button > input {
+    margin: 10px;
+}

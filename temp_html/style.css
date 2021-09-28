@@ -1,0 +1,109 @@
+/* 공통 부분 */
+* {
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+    margin: 0px;
+    padding: 0px;
+    color: #000;
+}
+
+/*헤더*/
+.header {
+    width: 1280px;
+    height: 50px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.user_info {
+    /* background: chocolate; */
+    width: 300px;
+    height: 50px;
+    text-align: center;
+
+}
+
+/* 게시물 */
+.board {
+    /* background: chartreuse; */
+    width: 1280px;
+    height: calc(720px - 50px);
+    margin: auto;
+}
+
+/* 게시물 상단 */
+.board_upper {
+    /* background: cornflowerblue; */
+    width: 1280px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.board_upper > a {
+    margin-right: 30px;
+    margin-top: 15px;
+}
+
+/* 검색창 */
+.search_box {
+    /* background: crimson; */
+    width: 300px;
+    height: auto;
+    margin-left: 200px;
+    display: flex;
+}
+
+.search_box > form > input {
+    background: rgba(0, 0, 0, 0.3);
+    width: 240px;
+    margin: 15px 10px auto 10px;
+}
+
+/* 게시물 테이블 */
+.board_table {
+    /* background: cornflowerblue; */
+    width: 1280px;
+    height:  500px;
+    margin: 30px auto 30px auto;
+}
+
+.board_table > table {
+    border: black solid 1px;
+    width: 1280px;
+    height: 500px;
+    margin: auto;
+}
+
+.board_table th,
+.board_table td {
+    border: black solid 1px;
+    padding: 10px ;
+    text-align: center;
+
+}
+
+.board_table th:first-child , td:first-child {
+    width: 30px;
+}
+
+.board_table th:nth-child(3), td:nth-child(3){
+    width: 160px;
+}
+
+.board_table th:last-child , td:last-child {
+    width: 160px;
+}
+
+/* 페이징 */
+.paging {
+    margin: auto 100px 100pxauto;
+    display: flex;
+    justify-content: center;
+}
+.paging > div {
+    width: 50px;
+}
