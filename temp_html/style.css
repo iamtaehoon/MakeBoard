@@ -107,3 +107,89 @@
 .paging > div {
     width: 50px;
 }
+
+
+
+/* write_form.html */
+.write_form {
+    /* background: brown; */
+    border: black solid 1px;
+    width: 1280px;
+    height: 800px;
+    margin: auto;
+}
+
+.wf_title {
+    /* background: cadetblue; */
+    width: 1280px;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.wf_content {
+    /* background: chocolate; */
+    width: 1280px;
+    height: 600px;
+    text-align:start;
+}
+
+.wf_attach {
+    /* background: cornsilk; */
+    width: 300px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.wf_bottom {
+    display: flex;
+    justify-content: center;
+}
+
+.wf_bottom > input {
+    width: 100px;
+    height: 50px;
+    margin: 15px 30px auto 30px;
+}
+
+.content_info {
+    text-align: right;
+    margin-right: 30px;
+}
+
+.see_content {
+    /* background: brown; */
+    border: black solid 1px;
+    width: 1280px;
+    height: 600px;
+    margin: auto;
+}
+
+.write_comment {
+    /* background: rosybrown; */
+    width: 1280px;
+    height: 100px;
+    margin: auto;
+}
+
+.write_comment > form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.write_comment > form > input {
+    width: 1100px;
+    height: 70px;
+    margin-top: 20px;
+}
+
+.write_comment > form > .comment_btn {
+    /* background: seagreen; */
+    width: 100px;
+    height: 60px;
+    margin-top: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 60px;
+}
