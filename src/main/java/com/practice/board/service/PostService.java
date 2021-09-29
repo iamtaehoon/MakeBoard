@@ -1,10 +1,13 @@
 package com.practice.board.service;
 
+import com.practice.board.controller.PostForm;
 import com.practice.board.domain.Post;
 import com.practice.board.repository.PostRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -50,6 +53,9 @@ public class PostService {
     /**
      * 게시물 페이징 조회
      */
+    public List<Post> findPosts() {
+        return postRepository.findAllPost();
+    }
 
     /**
      * 게시물 검색

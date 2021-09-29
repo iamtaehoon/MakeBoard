@@ -1,7 +1,7 @@
 <!doctype html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <div class="wrap">
@@ -16,10 +16,9 @@
 
             <!-- write_form -->
             <div class="see_content">
-                <div class= "wf_title"> 안녕~~~~~ 첫번재 글인가봐</div>
-                <span></span>
-                <div class="content_info">김태훈 / 21.09.28</div>
-                <div class="wf_content" >
+                <div class= "wf_title" th:text="${post.getTitle()}"> 안녕~~~~~ 첫번재 글인가봐</div>
+                <div class="content_info">김태훈 / 21.09.28</div> <!-- th:text="${post.getMember().getUserId()}"-->
+                <div class="wf_content" th:text="${post.getContent()}">
                     <br>ㄴ마ㅣㄹ호마ㅣㄹㅎ말머ㅏㄴ오마오마ㅓ오밍ㄴ
                     <br>asldhakjdhaksjhdkjahdajkdhajk
                     <br>sqlikkhjkhjhjhjhjjjjjjjj
