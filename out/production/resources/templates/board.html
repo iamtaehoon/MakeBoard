@@ -40,7 +40,7 @@
                 <tr th:each="post : ${posts}">
                     <td th:text="${post.getId()}">id</td>
                     <td th:text="${post.getTitle()}" th:onclick="|location.href='content?postId=${post.getId}'|">title</td>
-                    <td>username</td> <!--th:text="${post.getMember().getUserId()}"-->
+                    <td th:text="${post.getMember().getUserId()}">username</td> <!--th:text="${post.getMember().getUserId()}"-->
                     <td>2021.09.28</td>
                 </tr>
             </table>

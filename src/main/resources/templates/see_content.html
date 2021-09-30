@@ -17,7 +17,7 @@
             <!-- write_form -->
             <div class="see_content">
                 <div class= "wf_title" th:text="${post.getTitle()}"> 안녕~~~~~ 첫번재 글인가봐</div>
-                <div class="content_info">김태훈 / 21.09.28</div> <!-- th:text="${post.getMember().getUserId()}"-->
+                <div class="content_info" th:text="${post.getMember().getUserId()}">김태훈 / 21.09.28</div> <!-- th:text="${post.getMember().getUserId()}"-->
                 <div class="wf_content" th:text="${post.getContent()}">
                     <br>ㄴ마ㅣㄹ호마ㅣㄹㅎ말머ㅏㄴ오마오마ㅓ오밍ㄴ
                     <br>asldhakjdhaksjhdkjahdajkdhajk
@@ -35,11 +35,26 @@
             </div>
 
             <div class="write_comment">
-                <form>
-                    <input type="text">
+                <form th:action="@{/content}" th:object="${commentForm}" method="post">
+                    <input type="text" th:field="*{comment}">
+                    <h3 th:text="*{postId}"></h3>
+                    <input type="text" th:field="*{postId}" style="display:none"/>
+                    <!--이 방법이 맞는건가는 모르겠지만, 입력을 안주면 원래 있던 값이 사라지고 null로 계속 초기화됨. 다른 해결법이 있으려나....-->
+
                     <input class="comment_btn" type="submit" value="댓글 입력">
                 </form>
             </div>
+
+            <div class="comments">
+                <table>
+                    <tr th:each="comment : ${comments}">
+                        <td th:text="${comment.getMember().getUserId()}">댓글작성자</td>
+                        <td th:text="${comment.getComment()}">댓글</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
 
     </body>
 </html>

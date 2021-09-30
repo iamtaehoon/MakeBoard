@@ -7,4 +7,5 @@ import lombok.Setter;
 @Setter
 public class CommentForm {
     private String comment;
+    private Long postId;
 }

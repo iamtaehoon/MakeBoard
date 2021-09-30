@@ -43,6 +43,43 @@ public class MemberService {
         return false;
     }
 
+
+    /**
+     * member 찾기로 -> userName과 이메일로
+     */
+    public String findUserIdByUserNameandEmail(String userName, String email) {
+        List<Member> membersWithSameNameAndEmail = memberRepository.findMemberByUserNameAndEmail(userName, email);//이메일에 unique 걸어둬야겠군 userId랑 같이 중복확인도 만들어주고
+        if (membersWithSameNameAndEmail.isEmpty()){
+            //해당 아이디는 존재하지 않습니다.
+            throw new IllegalStateException("해당 아이디는 존재하지 않습니다.");
+        }
+        Member member = membersWithSameNameAndEmail.get(0);
+
+        return member.getUserId();
+    }
+
+    /**
+     * member 찾기 -> userId
+     */
+    public Member findMemberByUserId(String userId) {
+        List<Member> memberByUserId = memberRepository.findMemberByUserId(userId);
+
+        if (memberByUserId.isEmpty()){
+            //해당 아이디는 존재하지 않습니다.
+            //에러 던지기
+            throw new IllegalStateException("해당 아이디는 존재하지 않습니다.");
+        }
+        Member member = memberByUserId.get(0);
+        return member;
+    }
+
+    /**
+     * member 찾기 -> Long타입 id로
+     */
+    public Member findMemberById(Long id) {
+        return memberRepository.findMemberById(id);
+    }
+
     /**
      * 아이디 찾아서 이메일로 보내주기
      * 아직 미구현. 컨트롤러로 옮겨야함. 그러면 서비스에는 뭘 만들어둬야할까?
@@ -54,13 +91,14 @@ public class MemberService {
 
     }
 
+
     /**
      * 비밀번호 변경
      * 이메일 인증코드 받아오고 하는 절차가 복잡할거같으니 일단 keep. 다음에 만들기.
      */
 
 
-    private void sendMessageAboutUserId(String email, String userId) throws MessagingException {
+    public void sendMessageAboutUserId(String email, String userId) throws MessagingException {
         MimeMessage mimeMessage = javaMailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true, "UTF-8");
         mimeMessageHelper.setFrom(form);
@@ -69,29 +107,6 @@ public class MemberService {
         mimeMessageHelper.setText("태훈Board에 가입하신 아이디는 " + userId + " 입니다.\n"); // 나중에 thymeleaf 공부하고 모양새 바꾸기
     }
 
-    private String findUserIdByUserNameandEmail(String userName, String email) {
-        List<Member> membersWithSameNameAndEmail = memberRepository.findMemberByUserNameAndEmail(userName, email);//이메일에 unique 걸어둬야겠군 userId랑 같이 중복확인도 만들어주고
-        if (membersWithSameNameAndEmail.isEmpty()){
-            //해당 아이디는 존재하지 않습니다.
-            throw new IllegalStateException("해당 아이디는 존재하지 않습니다.");
-        }
-        Member member = membersWithSameNameAndEmail.get(0);
-
-        return member.getUserId();
-    }
-
-
-    private Member findMemberByUserId(String userId) {
-        List<Member> memberByUserId = memberRepository.findMemberByUserId(userId);
-
-        if (memberByUserId.isEmpty()){
-            //해당 아이디는 존재하지 않습니다.
-            //에러 던지기
-            throw new IllegalStateException("해당 아이디는 존재하지 않습니다.");
-        }
-        Member member = memberByUserId.get(0);
-        return member;
-    }
 
     private void validateSameUserName(Member member) {
         List<Member> memberByUserId = memberRepository.findMemberByUserId(member.getUserId());

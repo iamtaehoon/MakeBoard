@@ -166,7 +166,6 @@
 }
 
 .write_comment {
-    /* background: rosybrown; */
     width: 1280px;
     height: 100px;
     margin: auto;
@@ -192,4 +191,34 @@
     cursor: pointer;
     text-align: center;
     line-height: 60px;
+}
+
+/*contents(게시물->댓글 보여주기)*/
+/*comment인데 content라고 오타를 냈네잉*/
+.comments {
+    width: 1280px;
+    height: 500px;
+    margin: 30px auto 30px auto;
+}
+
+.comments > table {
+    border: black solid 1px;
+    width: 1280px;
+    height: 500px;
+    margin: auto;
+}
+
+.comments td {
+    border: black solid 1px;
+    padding: 10px ;
+    text-align: center;
+
+}
+
+.comments td:first-child {
+    width: 30px;
+}
+
+.comments td:last-child {
+    width: 160px;
 }

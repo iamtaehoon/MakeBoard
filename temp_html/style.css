@@ -100,7 +100,7 @@
 
 /* 페이징 */
 .paging {
-    margin: auto 100px 100pxauto;
+    margin: auto 100px 100px auto;
     display: flex;
     justify-content: center;
 }
@@ -193,3 +193,33 @@
     text-align: center;
     line-height: 60px;
 }
+
+
+.comments {
+    width: 1280px;
+    height: 500px;
+    margin: 30px auto 30px auto;
+}
+
+.comments > table {
+    border: black solid 1px;
+    width: 1280px;
+    height: 500px;
+    margin: auto;
+}
+
+.comments td {
+    border: black solid 1px;
+    padding: 10px ;
+    text-align: center;
+
+}
+
+.comments td:first-child {
+    width: 30px;
+}
+
+.comments td:last-child {
+    width: 160px;
+}
+
